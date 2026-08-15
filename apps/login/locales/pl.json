@@ -372,7 +372,8 @@
       "userNotFound": "Nie znaleziono użytkownika w systemie",
       "couldNotLinkIDP": "Nie udało się powiązać IDP z użytkownikiem",
       "couldNotRegisterUser": "Nie udało się zarejestrować użytkownika",
-      "sessionMismatch": "Rejestracja została rozpoczęta w innej przeglądarce. Zaloguj się ponownie u swojego dostawcy tożsamości."
+      "sessionMismatch": "Rejestracja została rozpoczęta w innej przeglądarce. Zaloguj się ponownie u swojego dostawcy tożsamości.",
+      "registerNotAllowed": "Rejestracja nie jest dozwolona"
     }
   },
   "invite": {

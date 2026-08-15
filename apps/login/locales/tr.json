@@ -372,7 +372,8 @@
       "userNotFound": "Kullanıcı sistemde bulunamadı",
       "couldNotLinkIDP": "IDP kullanıcıya bağlanamadı",
       "couldNotRegisterUser": "Kullanıcı kayıt edilemedi",
-      "sessionMismatch": "Kayıt başka bir tarayıcıda başlatıldı. Lütfen kimlik sağlayıcınızla yeniden oturum açın."
+      "sessionMismatch": "Kayıt başka bir tarayıcıda başlatıldı. Lütfen kimlik sağlayıcınızla yeniden oturum açın.",
+      "registerNotAllowed": "Kayıt olmasına izin verilmiyor"
     }
   },
   "invite": {

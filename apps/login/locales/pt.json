@@ -372,7 +372,8 @@
       "userNotFound": "Usuário não encontrado no sistema",
       "couldNotLinkIDP": "Não foi possível vincular o provedor de identidade ao usuário",
       "couldNotRegisterUser": "Não foi possível cadastrar o usuário",
-      "sessionMismatch": "O cadastro foi iniciado em outro navegador. Entre novamente com seu provedor de identidade."
+      "sessionMismatch": "O cadastro foi iniciado em outro navegador. Entre novamente com seu provedor de identidade.",
+      "registerNotAllowed": "O registro não é permitido"
     }
   },
   "invite": {

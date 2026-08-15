@@ -365,7 +365,8 @@
       "userNotFound": "ユーザーがシステムに見つかりません",
       "couldNotLinkIDP": "IDPをユーザーにリンクできませんでした",
       "couldNotRegisterUser": "ユーザーを登録できませんでした",
-      "sessionMismatch": "登録は別のブラウザで開始されました。IDプロバイダーでもう一度サインインしてください。"
+      "sessionMismatch": "登録は別のブラウザで開始されました。IDプロバイダーでもう一度サインインしてください。",
+      "registerNotAllowed": "新規登録は許可されていません"
     }
   },
   "invite": {

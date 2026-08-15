@@ -372,7 +372,8 @@
       "userNotFound": "Gebruiker niet in het systeem gevonden",
       "couldNotLinkIDP": "Kon IDP niet aan gebruiker koppelen",
       "couldNotRegisterUser": "Kon gebruiker niet registreren",
-      "sessionMismatch": "De registratie is in een andere browser gestart. Meld je opnieuw aan bij je identiteitsprovider."
+      "sessionMismatch": "De registratie is in een andere browser gestart. Meld je opnieuw aan bij je identiteitsprovider.",
+      "registerNotAllowed": "Registratie is niet toegestaan"
     }
   },
   "invite": {
