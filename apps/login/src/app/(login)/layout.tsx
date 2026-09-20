@@ -82,7 +82,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                   </div>
                   <div className="relative mx-auto w-full max-w-[1100px]">
                     <div className="mx-auto flex max-w-[440px] flex-row items-center justify-end space-x-4 px-4 py-4 md:max-w-full md:px-8">
-                      <LanguageSwitcher languages={languages} />
+                      {/* With a single allowed language there is nothing to switch to. */}
+                      {languages.length > 1 && <LanguageSwitcher languages={languages} />}
                       <ThemeSwitch />
                     </div>
                   </div>
