@@ -27,6 +27,12 @@ const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_PATH,
   output: process.env.NEXT_OUTPUT_MODE || undefined,
   reactStrictMode: true,
+  // The login never renders next/image, so the image optimizer only adds attack surface
+  // (GHSA-2464-fhr4-w9xw) and a native sharp dependency that the standalone build copies
+  // from the build host. Serve images as-is instead.
+  images: {
+    unoptimized: true,
+  },
   typescript: {
     // Since Next.js 16.3 the build type-checks every file matched by tsconfig.json,
     // including unit tests, which vitest runs without type-checking.
