@@ -20,3 +20,7 @@ overrides:
   # @opentelemetry/sdk-node 0.218 and auto-instrumentations-node 0.76 (login) pin older versions
   "@opentelemetry/core@<2.8.0": "^2.8.0"
   "@opentelemetry/propagator-jaeger@<2.9.0": "^2.9.0"
+  # Patched transitive deps for the login: sharp via next/next-intl (GHSA-wq5f-xc86-pv6w),
+  # @grpc/grpc-js via the OpenTelemetry exporters (CVE-2026-101916)
+  "sharp@<0.35.5": "^0.35.5"
+  "@grpc/grpc-js@<1.14.5": "^1.14.5"
