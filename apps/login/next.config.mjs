@@ -33,6 +33,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // images.unoptimized alone does not stop output file tracing from copying sharp into the
+  // standalone output. Exclude it explicitly: nothing loads it with the optimizer off, and the
+  // copy would otherwise be the build host's native binary (darwin on a Mac build).
+  outputFileTracingExcludes: {
+    "*": ["../../node_modules/.pnpm/sharp@*/**", "../../node_modules/.pnpm/@img+*/**"],
+  },
   typescript: {
     // Since Next.js 16.3 the build type-checks every file matched by tsconfig.json,
     // including unit tests, which vitest runs without type-checking.
