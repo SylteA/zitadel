@@ -79,6 +79,40 @@ describe("zitadel queries are case insensitive", () => {
   });
 });
 
+describe("searchUsers trims the search value", () => {
+  const serviceConfig = { serviceUrl: "https://api.example.com" } as any;
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
+  // Browsers and mobile keyboards readily submit a trailing space, which must not make an
+  // existing user unfindable.
+  test("should search the login name without surrounding whitespace", async () => {
+    const { createServiceForHost } = await import("./service");
+    const listUsers = vi.fn().mockResolvedValue({ details: {}, result: [] });
+    vi.mocked(createServiceForHost).mockResolvedValue({ listUsers } as any);
+
+    const { searchUsers } = await import("./zitadel");
+    await searchUsers({ serviceConfig, searchValue: "  user@example.com \n", loginSettings: {} as any });
+
+    const loginNameQuery = listUsers.mock.calls[0][0].queries.find((q: any) => q.query?.case === "loginNameQuery");
+    expect(loginNameQuery.query.value.loginName).toBe("user@example.com");
+  });
+
+  test("should trim before appending the organization suffix", async () => {
+    const { createServiceForHost } = await import("./service");
+    const listUsers = vi.fn().mockResolvedValue({ details: {}, result: [] });
+    vi.mocked(createServiceForHost).mockResolvedValue({ listUsers } as any);
+
+    const { searchUsers } = await import("./zitadel");
+    await searchUsers({ serviceConfig, searchValue: " user ", loginSettings: {} as any, suffix: "example.com" });
+
+    const loginNameQuery = listUsers.mock.calls[0][0].queries.find((q: any) => q.query?.case === "loginNameQuery");
+    expect(loginNameQuery.query.value.loginName).toBe("user@example.com");
+  });
+});
+
 describe("startIdentityProviderFlow", () => {
   const serviceConfig = { baseUrl: "https://api.example.com" } as any;
   let startIdentityProviderIntent: ReturnType<typeof vi.fn>;

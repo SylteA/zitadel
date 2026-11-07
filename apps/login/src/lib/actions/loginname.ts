@@ -48,6 +48,11 @@ export async function sendLoginname(command: SendLoginnameCommand) {
 
   const t = await getTranslations("loginname");
 
+  // Trim surrounding whitespace before the lookup and the case insensitive checks:
+  // browsers and mobile keyboards readily submit a trailing space, which would
+  // otherwise make an existing user unfindable.
+  command = { ...command, loginName: command.loginName.trim() };
+
   const loginSettingsByContext = await getLoginSettings({ serviceConfig, organization: command.organization });
 
   if (!loginSettingsByContext) {

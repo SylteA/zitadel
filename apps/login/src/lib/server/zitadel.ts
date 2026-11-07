@@ -775,6 +775,9 @@ export async function searchUsers({
 
   const t = await getTranslations("zitadel");
 
+  // Surrounding whitespace is never part of a login name, email or phone number.
+  searchValue = searchValue.trim();
+
   // if a suffix is provided, we search for the userName concatenated with the suffix
   if (suffix) {
     const searchValueWithSuffix = `${searchValue}@${suffix}`;
