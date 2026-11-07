@@ -1180,6 +1180,21 @@ describe("sendLoginname", () => {
       expect(mockCreateSessionAndUpdateCookie).toHaveBeenCalled();
     });
 
+    test("should trim the login name before searching and echoing it back", async () => {
+      mockGetLoginSettings.mockResolvedValue({
+        ignoreUnknownUsernames: true,
+        allowLocalAuthentication: true,
+      });
+      mockSearchUsers.mockResolvedValue({ result: [] });
+
+      const result = await sendLoginname({ loginName: "  user@example.com  " });
+
+      expect(mockSearchUsers).toHaveBeenCalledWith(expect.objectContaining({ searchValue: "user@example.com" }));
+      // the raw input is echoed into the redirect while enumeration protection applies,
+      // so it has to be trimmed there as well
+      expect((result as any).redirect).toContain("loginName=user%40example.com");
+    });
+
     test("should block login with phone number when disableLoginWithPhone is true", async () => {
       const mockUser = {
         userId: "user123",
