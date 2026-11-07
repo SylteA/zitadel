@@ -45,6 +45,7 @@ type ResetPasswordCommand = {
 };
 
 export async function resetPassword(command: ResetPasswordCommand) {
+  command = { ...command, loginName: command.loginName.trim() };
   const _headers = await headers();
   const { serviceConfig } = getServiceConfig(_headers);
 
@@ -146,6 +147,8 @@ export type UpdateSessionCommand = {
 export async function sendPassword(
   command: UpdateSessionCommand,
 ): Promise<{ error: string } | { redirect: string } | { samlData: { url: string; fields: Record<string, string> } }> {
+  // The login name may arrive straight from a URL; trim it like sendLoginname does.
+  command = { ...command, loginName: command.loginName.trim() };
   const _headers = await headers();
   const { serviceConfig } = getServiceConfig(_headers);
   const t = await getTranslations("password");
