@@ -1,5 +1,5 @@
-# Pinned by digest so rebuilds are reproducible; bump deliberately (node:24-alpine, Node v24.22.1).
-FROM node:24-alpine@sha256:06d7adf3e0ef61a13f1d28682726366f97a15aa1888c934d3ecec86c33918b53
+# Pinned by digest so rebuilds are reproducible; bump deliberately (node:24-alpine, Node v24.22.3).
+FROM node:24-alpine@sha256:116b800c3754b440ee0aa3ed2f20f5bf3d99a554bfd9adeea09ea8017f6e85f5
 WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
