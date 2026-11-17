@@ -7,15 +7,15 @@ vi.mock("next/headers", () => ({
   headers: vi.fn(async () => new Headers()),
 }));
 
-vi.mock("@/lib/service-url", () => ({
+vi.mock("@/lib/server/service-url", () => ({
   getServiceConfig: () => ({ serviceConfig: {} }),
 }));
 
-vi.mock("@/lib/zitadel", () => ({
+vi.mock("@/lib/server/zitadel", () => ({
   getBrandingSettings: vi.fn(),
 }));
 
-const { getBrandingSettings } = await import("@/lib/zitadel");
+const { getBrandingSettings } = await import("@/lib/server/zitadel");
 
 describe("buildIconsMetadata", () => {
   describe("bundled favicons", () => {

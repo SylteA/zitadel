@@ -1,5 +1,5 @@
-import { getServiceConfig } from "@/lib/service-url";
-import { getBrandingSettings } from "@/lib/zitadel";
+import { getServiceConfig } from "@/lib/server/service-url";
+import { getBrandingSettings } from "@/lib/server/zitadel";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 
